@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MessageServiceImpl implements MessageService {
 
-    private final MessageService messageService;
 
     @Override
     public MessageDTO save(MessageDTO messageDTO) {

@@ -17,7 +17,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SujetServiceImpl implements SujetService {
 
-    private final SujetService sujetService;
     private final SujetMapper sujetMapper;
     private final SujetRepository sujetRepository;
 
@@ -31,7 +30,7 @@ public class SujetServiceImpl implements SujetService {
 
     @Override
     public List<SujetDTO> findAll() {
-        return sujetRepository.findAll().stream.map()
+      return null;
     }
 
     @Override
