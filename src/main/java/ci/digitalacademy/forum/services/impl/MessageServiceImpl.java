@@ -18,7 +18,7 @@ import java.util.List;
 public class MessageServiceImpl implements MessageService {
 
     private final MessageMapper messageMapper;
-    private MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
 
     @Override
     public MessageDTO save(MessageDTO messageDTO) {
