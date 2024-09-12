@@ -1,0 +1,48 @@
+2024-09-12T10:47:42.149Z  INFO 4184 --- [forum] [restartedMain] c.digitalacademy.forum.ForumApplication  : Starting ForumApplication using Java 17.0.11 with PID 4184 (C:\ATOS\forum\target\classes started by HP in C:\ATOS\forum)
+2024-09-12T10:47:42.154Z  INFO 4184 --- [forum] [restartedMain] c.digitalacademy.forum.ForumApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-09-12T10:47:42.334Z  INFO 4184 --- [forum] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-12T10:47:42.335Z  INFO 4184 --- [forum] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-12T10:47:48.526Z  INFO 4184 --- [forum] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-12T10:47:48.569Z  INFO 4184 --- [forum] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 JPA repository interfaces.
+2024-09-12T10:47:53.941Z  INFO 4184 --- [forum] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-09-12T10:47:54.273Z  INFO 4184 --- [forum] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-12T10:47:54.273Z  INFO 4184 --- [forum] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-12T10:47:59.775Z  INFO 4184 --- [forum] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-12T10:47:59.776Z  INFO 4184 --- [forum] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 17427 ms
+2024-09-12T10:48:00.963Z  INFO 4184 --- [forum] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-12T10:48:02.558Z  INFO 4184 --- [forum] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-12T10:48:03.637Z  INFO 4184 --- [forum] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-12T10:48:07.243Z  INFO 4184 --- [forum] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-12T10:48:07.948Z  INFO 4184 --- [forum] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-12T10:48:09.747Z  INFO 4184 --- [forum] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d62e9ac
+2024-09-12T10:48:09.777Z  INFO 4184 --- [forum] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-12T10:48:10.398Z  WARN 4184 --- [forum] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-09-12T10:48:12.318Z  INFO 4184 --- [forum] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-12T10:48:15.485Z  INFO 4184 --- [forum] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-12T10:48:15.511Z  WARN 4184 --- [forum] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forumServiceImpl' defined in file [C:\ATOS\forum\target\classes\ci\digitalacademy\forum\services\impl\ForumServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'forumServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-09-12T10:48:15.513Z  INFO 4184 --- [forum] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-12T10:48:15.568Z  INFO 4184 --- [forum] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-12T10:48:15.628Z  INFO 4184 --- [forum] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-12T10:48:15.631Z  INFO 4184 --- [forum] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-09-12T10:48:15.681Z  INFO 4184 --- [forum] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-12T10:48:15.812Z ERROR 4184 --- [forum] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌──->──┐
+|  forumServiceImpl defined in file [C:\ATOS\forum\target\classes\ci\digitalacademy\forum\services\impl\ForumServiceImpl.class]
+└──<-──┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+

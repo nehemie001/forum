@@ -1,4 +1,27 @@
 package ci.digitalacademy.forum.services.impl;
 
-public class MessageServiceImpl {
+import ci.digitalacademy.forum.services.MessageService;
+import ci.digitalacademy.forum.services.dto.MessageDTO;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@Slf4j
+@RequiredArgsConstructor
+public class MessageServiceImpl implements MessageService {
+
+    private final MessageService messageService;
+
+    @Override
+    public MessageDTO save(MessageDTO messageDTO) {
+        return null;
+    }
+
+    @Override
+    public List<MessageDTO> findAll() {
+        return List.of();
+    }
 }
