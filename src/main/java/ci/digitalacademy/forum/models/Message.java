@@ -22,7 +22,7 @@ public class Message implements Serializable {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "date_message", nullable = false)
+    @Column(name = "date_message")
     private LocalDate dateMessage;
 
     @ManyToOne(cascade = CascadeType.ALL)

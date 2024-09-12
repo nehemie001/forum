@@ -31,7 +31,7 @@ public class SujetServiceImpl implements SujetService {
 
     @Override
     public List<SujetDTO> findAll() {
-        return sujetRepository.findAll().stream.map()
+        return null;
     }
 
     @Override
