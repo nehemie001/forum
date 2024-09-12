@@ -15,16 +15,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ForumServiceImpl implements ForumService {
 
-    private final ForumService forumService;
-    private  final 
-
-
     @Override
     public ForumDTO save(ForumDTO forumDTO) {
         log.debug("Request to save forum:{}",forumDTO);
-
-        retu
-
+        return null;
     }
 
     @Override

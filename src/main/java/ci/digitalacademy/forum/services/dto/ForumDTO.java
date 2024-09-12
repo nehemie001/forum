@@ -1,11 +1,9 @@
 package ci.digitalacademy.forum.services.dto;
 
-import ci.digitalacademy.forum.models.Sujet;
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.List;
 
 @Getter
@@ -18,7 +16,7 @@ public class ForumDTO {
 
     private String description;
 
-    private LocalDate dateCreation;
+    private Instant dateCreation;
 
     private List<SujetDTO> sujet;
 }

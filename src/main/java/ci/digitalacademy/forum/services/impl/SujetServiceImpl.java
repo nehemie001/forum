@@ -17,13 +17,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SujetServiceImpl implements SujetService {
 
-    private final SujetService sujetService;
     private final SujetMapper sujetMapper;
     private final SujetRepository sujetRepository;
 
     @Override
     public SujetDTO save(SujetDTO sujetDTO) {
-        log.debug("");
+        log.debug("Request to save sujet : {} ", sujetDTO);
         Sujet sujet = sujetMapper.toEntity(sujetDTO);
         sujet = sujetRepository.save(sujet);
         return sujetMapper.toDto(sujet);
@@ -31,12 +30,14 @@ public class SujetServiceImpl implements SujetService {
 
     @Override
     public List<SujetDTO> findAll() {
-        return sujetRepository.findAll().stream.map()
+        log.debug("Request to get all sujet : {} ");
+        return sujetRepository.findAll().stream().map(sujetMapper::toDto).toList();
     }
 
     @Override
     public Optional<SujetDTO> findById(Long id) {
-        return Optional.empty();
+        log.debug("Request to get one sujet", id);
+        return sujetRepository.findById(id).map(sujetMapper::toDto);
     }
 
 }
