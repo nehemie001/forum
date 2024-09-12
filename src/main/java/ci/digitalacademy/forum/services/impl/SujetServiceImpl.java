@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,7 @@ public class SujetServiceImpl implements SujetService {
     public SujetDTO save(SujetDTO sujetDTO) {
         log.debug("Request to save sujet : {} ", sujetDTO);
         Sujet sujet = sujetMapper.toEntity(sujetDTO);
+        sujet.setDateCreation(Instant.now());
         sujet = sujetRepository.save(sujet);
         return sujetMapper.toDto(sujet);
     }

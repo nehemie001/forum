@@ -21,7 +21,7 @@ public class Message {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "date_message", nullable = false)
+    @Column(name = "date_message")
     private Instant dateMessage;
 
     @ManyToOne(cascade = CascadeType.ALL)
