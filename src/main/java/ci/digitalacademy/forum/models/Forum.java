@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.List;
 
 @Getter
@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "forum")
-@ToString
 public class Forum {
 
     @Id
@@ -28,7 +27,7 @@ public class Forum {
     private String description;
 
     @Column(name = "date_creation", nullable = false)
-    private LocalDate dateCreation;
+    private Instant dateCreation;
 
     @OneToMany(mappedBy = "forum", cascade = CascadeType.ALL)
     @Column(nullable = true)

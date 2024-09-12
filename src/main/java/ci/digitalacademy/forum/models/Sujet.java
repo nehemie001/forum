@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
+import java.sql.Date;
+import java.time.Instant;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -29,7 +29,7 @@ public class Sujet{
     private String category;
 
     @Column(name = "date_creation")
-    private LocalDate dateCreation;
+    private Instant dateCreation;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "forum_id")

@@ -5,15 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "message")
-public class Message implements Serializable {
+public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +21,8 @@ public class Message implements Serializable {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "date_message", nullable = false)
-    private LocalDate dateMessage;
+    @Column(name = "date_message")
+    private Instant dateMessage;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sujet_id")
