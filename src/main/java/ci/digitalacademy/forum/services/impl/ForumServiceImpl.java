@@ -1,5 +1,8 @@
 package ci.digitalacademy.forum.services.impl;
 
+import ci.digitalacademy.forum.models.Forum;
+import ci.digitalacademy.forum.models.Message;
+import ci.digitalacademy.forum.repositories.ForumRepository;
 import ci.digitalacademy.forum.services.ForumService;
 import ci.digitalacademy.forum.services.dto.ForumDTO;
 import ci.digitalacademy.forum.services.mapper.ForumMapper;
@@ -15,19 +18,24 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ForumServiceImpl implements ForumService {
 
+    private final ForumRepository forumRepository;
+    private final ForumMapper forumMapper;
+
     @Override
     public ForumDTO save(ForumDTO forumDTO) {
-        log.debug("Request to save forum:{}",forumDTO);
-        return null;
+        log.debug("Request to save forum:{}", forumDTO);
+        Forum forum = forumMapper.toEntity(forumDTO);
+        forum = forumRepository.save(forum);
+        return forumMapper.toDto(forum);
     }
 
     @Override
     public List<ForumDTO> findAll() {
-        return List.of();
+        return forumRepository.findAll().stream().map(forumMapper::toDto).toList();
     }
 
     @Override
     public Optional<ForumDTO> findById(Long id) {
-        return Optional.empty();
+        return forumRepository.findById(id).map(forumMapper::toDto);
     }
 }
