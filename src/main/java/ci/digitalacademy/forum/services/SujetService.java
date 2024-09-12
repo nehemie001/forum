@@ -11,5 +11,6 @@ public interface SujetService {
 
     List<SujetDTO> findAll();
 
-    Optional<SujetDTO> findOne(Long id);
+    Optional<SujetDTO> findById(Long id);
+
 }

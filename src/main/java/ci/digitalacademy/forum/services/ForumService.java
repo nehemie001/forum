@@ -12,5 +12,7 @@ public interface ForumService {
 
     List<ForumDTO> findAll();
 
-    Optional<ForumDTO> findOne(Long id);
+//    Optional<ForumDTO> findOne(Long id);
+
+    Optional<ForumDTO> findById(Long id);
 }
