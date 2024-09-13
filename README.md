@@ -1,4 +1,4 @@
-# Forum API
+# Forum APIs
 
 Cette API REST permet de gérer un forum avec des entités telles que **Forum**, **Sujet**, et **Message**. Elle permet de créer des forums, de gérer les sujets dans chaque forum, et de poster des messages dans les sujets. L'API est construite avec **Spring Boot 3.3.3**, utilise **PostgreSQL** pour la persistance des données, et suit une architecture RESTful.
 
