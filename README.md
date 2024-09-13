@@ -24,3 +24,97 @@ Avant de lancer ce projet, vous devez avoir installé les éléments suivants :
    spring.jpa.hibernate.ddl-auto=create(au premier demmarage), update(apres le premier demmarage)
    spring.jpa.show-sql=true
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+## Installation
+
+Suivez les étapes ci-dessous pour installer et exécuter l'API :
+
+1. Clonez le dépôt Git dans votre répertoire local :
+
+    ```properties
+    git clone https://github.com/nehemie001/forum.git
+
+2. Accédez au répertoire du projet :
+
+     ```properties
+    cd forum
+
+3. Compilez le projet avec Maven :
+
+    ```properties
+    mvn clean install
+
+4. Démarrez l'application avec Maven :
+
+   ```properties
+    mvn spring-boot:run
+
+5. L'application sera disponible sur http://localhost:votre_port
+
+## Endpoints des APIs
+
+Gestion des Forums
+
+  - Créer un forum
+      - Méthode : `POST`
+      - URL : `/api/forums`
+      - Body :
+   
+    ```properties
+    {
+    "title": "Nom du forum",
+    "description": "Description du forum"
+    }
+
+ - Liste des forums
+      - Méthode : `GET`
+      - URL : `/api/forums`
+
+- Details d'un forum
+      - Méthode : `GET`
+      - URL : `/api/forums/{id}`
+
+Gestion des Sujets
+
+  - Créer un sujet dans un forum
+      - Méthode : `POST`
+      - URL : `/api/sujets`
+      - Body :
+   
+    ```properties
+    {
+    "title":"nom du sujet",
+    "description":"description du sujet"
+    }
+
+ - Liste des sujets
+      - Méthode : `GET`
+      - URL : `/api/sujets`
+
+- Details d'un sujet
+      - Méthode : `GET`
+      - URL : `/api/sujets/{id}`
+
+Gestion des Messages
+
+  - Créer un message dans un sujet
+      - Méthode : `POST`
+      - URL : `/api/messages`
+      - Body :
+   
+    ```properties
+    {
+    "content":"contenu du message",
+    "sujet_id":id du sujet
+    }
+
+ - Liste des messages
+      - Méthode : `GET`
+      - URL : `/api/sujets`
+        
+## Documentation des APIs
+
+La documentation complète de l'API est disponible via un fichier Postman que vous pouvez importer dans votre environnement Postman. Téléchargez le fichier ici.
+
+## Contributions
+Les contributions sont les bienvenues. Veuillez ouvrir une "issue" pour discuter des changements majeurs avant de soumettre une pull request.
