@@ -20,6 +20,8 @@ public class SujetDTO {
 
     private ForumDTO forum;
 
+    private String slug;
+
     private List<MessageDTO> message;
 
 }

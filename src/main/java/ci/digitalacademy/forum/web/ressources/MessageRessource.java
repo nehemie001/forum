@@ -30,13 +30,6 @@ public class MessageRessource {
         return new ResponseEntity<>(messageService.save(message), HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<List<MessageDTO>> findAllBySujets(@PathVariable Long sujetId) {
-        log.debug("REST request to get Messages by sujet : {}", sujetId);
-        return null;
-    }
-
-
 
 
     @GetMapping
@@ -52,5 +45,13 @@ public class MessageRessource {
         log.debug("REST request to Get all messages");
         return messageService.findAll();
     }
+
+    @GetMapping("/sujet/{sujetId}")
+    public ResponseEntity<List<MessageDTO>> findMessagesInSujet(@PathVariable Long sujetId) {
+        log.debug("REST request to get messages in sujet by id : {}", sujetId);
+        List<MessageDTO> messages = messageService.findMessageInSujet(sujetId);
+        return ResponseEntity.ok(messages);
+    }
+
 
 }

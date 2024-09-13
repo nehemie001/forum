@@ -45,15 +45,6 @@ public class SujetServiceImpl implements SujetService {
     }
 
     @Override
-    public List<SujetDTO> findAllByForum(Long forumId) {
-        log.debug("Request to get all sujets by forum : {}", forumId);
-        return sujetRepository.findByForumId(forumId)
-                .stream()
-                .map(sujetMapper::toDto)
-                .toList();
-    }
-
-    @Override
     public List<SujetDTO> findAll() {
         log.debug("Request to get all sujet : {} ");
         return sujetRepository.findAll().stream().map(sujetMapper::toDto).toList();
@@ -65,12 +56,11 @@ public class SujetServiceImpl implements SujetService {
         return sujetRepository.findById(id).map(sujetMapper::toDto);
     }
 
-    public List<MessageDTO> getMessagesBySujetId(Long sujetId) {
-        Sujet sujet = sujetRepository.findById(sujetId)
-                .orElseThrow(() -> new IllegalArgumentException("Sujet not found with id " + sujetId));
-        return sujet.getMessage().stream()
-                .map(messageMapper::toDto)
-                .collect(Collectors.toList());
+    @Override
+    public Optional<SujetDTO> findBySlug(String slug) {
+        log.debug("Request to get sujet by slug:{}", slug);
+        return sujetRepository.findBySlug(slug).map(sujetMapper::toDto);
     }
+
 
 }

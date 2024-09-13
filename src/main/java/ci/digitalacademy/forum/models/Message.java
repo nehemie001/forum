@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 @Getter
@@ -12,20 +13,23 @@ import java.time.Instant;
 @NoArgsConstructor
 @Entity
 @Table(name = "message")
-public class Message {
+public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "content")
+    @Column(name = "content", nullable = false)
     private String content;
 
     @Column(name = "date_message")
     private Instant dateMessage;
 
+    @Column(name = "slug", unique = true, nullable = false)
+    private String slug;
+
     @ManyToOne
-    @JoinColumn(name = "sujet_id")
+    @JoinColumn(name = "sujet_id", nullable = false)
     private Sujet sujet;
 
 }

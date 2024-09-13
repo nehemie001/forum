@@ -14,6 +14,8 @@ public interface ForumService {
 
     Optional<ForumDTO> findById(Long id);
 
-    Forum getForumById(Long id);
+    Optional<ForumDTO> findBySlug(String slug);
+
+//    Forum getForumById(Long id);
 
 }

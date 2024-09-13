@@ -1,27 +1,20 @@
 package ci.digitalacademy.forum.web.ressources;
 
-import ci.digitalacademy.forum.models.Forum;
-import ci.digitalacademy.forum.models.Sujet;
-import ci.digitalacademy.forum.repositories.ForumRepository;
-import ci.digitalacademy.forum.repositories.SujetRepository;
-import ci.digitalacademy.forum.services.ForumService;
+
 import ci.digitalacademy.forum.services.SujetService;
 import ci.digitalacademy.forum.services.dto.ForumDTO;
 import ci.digitalacademy.forum.services.dto.SujetDTO;
-import ci.digitalacademy.forum.services.mapper.SujetMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,10 +26,6 @@ import java.util.Optional;
 public class SujetRessource {
 
     private final SujetService sujetService;
-    private final ForumService forumService;
-    private final SujetMapper sujetMapper;
-    private final ForumRepository forumRepository;
-    private final SujetRepository sujetRepository;
 
     @PostMapping
     @ApiResponse(responseCode = "201", description = "Sujet saved successfully")
@@ -82,6 +71,21 @@ public class SujetRessource {
     public List<SujetDTO> findAll() {
         log.debug("REST request to get all Sujets");
         return sujetService.findAll();
+    }
+
+    @GetMapping("/slug/{slug}")
+    @ApiResponse(responseCode = "200", description = "Return a sujet by its slug")
+    @Operation(summary = "Find a sujet by its slug", description = "This endpoint allows to find a sujet by its slug")
+    public ResponseEntity<SujetDTO> findSujetBySlug(
+            @Parameter(required = true, description = "Slug of the sujet to be retrieved")
+            @PathVariable String slug
+    ) {
+        log.debug("REST request to get Forum by slug : {}", slug);
+        Optional<SujetDTO> forum = sujetService.findBySlug(slug);
+        if (forum.isPresent()) {
+            return new ResponseEntity<>(forum.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }

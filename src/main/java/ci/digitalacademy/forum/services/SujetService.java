@@ -1,5 +1,6 @@
 package ci.digitalacademy.forum.services;
 
+import ci.digitalacademy.forum.services.dto.ForumDTO;
 import ci.digitalacademy.forum.services.dto.SujetDTO;
 
 import java.util.List;
@@ -11,8 +12,8 @@ public interface SujetService {
 
     List<SujetDTO> findAll();
 
-    List<SujetDTO> findAllByForum(Long forumId);
-
     Optional<SujetDTO> findById(Long id);
+
+    Optional<SujetDTO> findBySlug(String slug);
 
 }

@@ -32,15 +32,24 @@ public class ForumServiceImpl implements ForumService {
 
     @Override
     public List<ForumDTO> findAll() {
+        log.debug("Request to get all forums");
         return forumRepository.findAll().stream().map(forumMapper::toDto).toList();
     }
 
     @Override
     public Optional<ForumDTO> findById(Long id) {
+        log.debug("Request to get forum by id:{}", id);
         return forumRepository.findById(id).map(forumMapper::toDto);
     }
 
+    @Override
+    public Optional<ForumDTO> findBySlug(String slug) {
+        log.debug("Request to get forum by slug:{}", slug);
+        return forumRepository.findBySlug(slug).map(forumMapper::toDto);
+    }
+
     public Forum getForumById(Long id) {
+        log.debug("Request to get forum by id:{}", id);
         return forumRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
     }
 

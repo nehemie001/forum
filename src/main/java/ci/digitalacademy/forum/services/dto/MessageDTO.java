@@ -15,6 +15,8 @@ public class MessageDTO {
 
     private Instant dateMessage;
 
+    private String slug;
+
     private SujetDTO sujet;
 
 }

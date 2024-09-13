@@ -1,13 +1,16 @@
 package ci.digitalacademy.forum.repositories;
 
 import ci.digitalacademy.forum.models.Message;
+import ci.digitalacademy.forum.models.Sujet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+
 
 public interface MessageRepository extends JpaRepository<Message, Long>  {
-    List<Message> getMessagesBySujetId(Long sujetId);
+    Optional<Message> findBySlug(String slug);
 
-    Collection<Object> findAllBySujetId(Long sujetId);
+    List<Message> findMessageById(Long id);
 }

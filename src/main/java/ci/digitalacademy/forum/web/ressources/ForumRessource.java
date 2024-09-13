@@ -31,7 +31,6 @@ public class ForumRessource {
     public ResponseEntity<ForumDTO> saveForum(@RequestBody ForumDTO forumDTO) {
         log.debug("REST request to save forum : {}", forumDTO);
 
-//        ForumDTO forum = forumService.
         return new ResponseEntity<>(forumService.save(forumDTO), HttpStatus.CREATED);
     }
 
@@ -57,7 +56,6 @@ public class ForumRessource {
 
     @GetMapping
     @ApiResponses(
-
             {
                     @ApiResponse(responseCode = "200", description = "List of forums retrieved successfully"),
                     @ApiResponse(responseCode = "404", description = "No forums found", content = @Content(schema = @Schema(implementation = String.class)))
@@ -69,9 +67,20 @@ public class ForumRessource {
         return forumService.findAll();
     }
 
-    public ResponseEntity<Forum> getForumById(@PathVariable Long id) {
-        Forum forum = forumService.getForumById(id);
-        return ResponseEntity.ok(forum);
+
+    @GetMapping("/slug/{slug}")
+    @ApiResponse(responseCode = "200", description = "Return a forum by its slug")
+    @Operation(summary = "Find a forum by its slug", description = "This endpoint allows to find a forum by its slug")
+    public ResponseEntity<ForumDTO> findForumBySlug(
+            @Parameter(required = true, description = "Slug of the forum to be retrieved")
+            @PathVariable String slug
+    ) {
+        log.debug("REST request to get Forum by slug : {}", slug);
+        Optional<ForumDTO> forum = forumService.findBySlug(slug);
+        if (forum.isPresent()) {
+            return new ResponseEntity<>(forum.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }
