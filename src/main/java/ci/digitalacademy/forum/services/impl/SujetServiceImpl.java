@@ -6,7 +6,9 @@ import ci.digitalacademy.forum.repositories.ForumRepository;
 import ci.digitalacademy.forum.repositories.SujetRepository;
 import ci.digitalacademy.forum.services.SujetService;
 import ci.digitalacademy.forum.services.dto.ForumDTO;
+import ci.digitalacademy.forum.services.dto.MessageDTO;
 import ci.digitalacademy.forum.services.dto.SujetDTO;
+import ci.digitalacademy.forum.services.mapper.MessageMapper;
 import ci.digitalacademy.forum.services.mapper.SujetMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -24,6 +27,7 @@ public class SujetServiceImpl implements SujetService {
     private final SujetMapper sujetMapper;
     private final SujetRepository sujetRepository;
     private final ForumRepository forumRepository;
+    private final MessageMapper messageMapper;
 
     @Override
     public SujetDTO save(SujetDTO sujetDTO) {
@@ -59,6 +63,14 @@ public class SujetServiceImpl implements SujetService {
     public Optional<SujetDTO> findById(Long id) {
         log.debug("Request to get one sujet", id);
         return sujetRepository.findById(id).map(sujetMapper::toDto);
+    }
+
+    public List<MessageDTO> getMessagesBySujetId(Long sujetId) {
+        Sujet sujet = sujetRepository.findById(sujetId)
+                .orElseThrow(() -> new IllegalArgumentException("Sujet not found with id " + sujetId));
+        return sujet.getMessage().stream()
+                .map(messageMapper::toDto)
+                .collect(Collectors.toList());
     }
 
 }

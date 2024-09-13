@@ -83,4 +83,5 @@ public class SujetRessource {
         log.debug("REST request to get all Sujets");
         return sujetService.findAll();
     }
+
 }
