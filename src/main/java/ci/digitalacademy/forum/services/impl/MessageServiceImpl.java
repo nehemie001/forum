@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -24,10 +25,19 @@ public class MessageServiceImpl implements MessageService {
     public MessageDTO save(MessageDTO messageDTO) {
         log.debug("Request to save message : {} ", messageDTO);
         Message message = messageMapper.toEntity(messageDTO);
+        message.setDateMessage(Instant.now());
         message = messageRepository.save(message);
         return messageMapper.toDto(message);
     }
-    
+
+//    @Override
+//    public List<MessageDTO> findAllBySujet(Long sujetId) {
+//        log.debug("Request to get all Messages by sujet : {}", sujetId);
+//        return messageRepository.findAllBySujetId(sujetId).stream()
+//                .map(messageMapper::toDto)
+//                .toList();
+//    }
+
 
     @Override
     public List<MessageDTO> findAll() {

@@ -1,18 +1,27 @@
 package ci.digitalacademy.forum.web.ressources;
 
+import ci.digitalacademy.forum.models.Forum;
+import ci.digitalacademy.forum.models.Sujet;
+import ci.digitalacademy.forum.repositories.ForumRepository;
+import ci.digitalacademy.forum.repositories.SujetRepository;
+import ci.digitalacademy.forum.services.ForumService;
 import ci.digitalacademy.forum.services.SujetService;
+import ci.digitalacademy.forum.services.dto.ForumDTO;
 import ci.digitalacademy.forum.services.dto.SujetDTO;
+import ci.digitalacademy.forum.services.mapper.SujetMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,13 +33,23 @@ import java.util.Optional;
 public class SujetRessource {
 
     private final SujetService sujetService;
+    private final ForumService forumService;
+    private final SujetMapper sujetMapper;
+    private final ForumRepository forumRepository;
+    private final SujetRepository sujetRepository;
 
     @PostMapping
     @ApiResponse(responseCode = "201", description = "Sujet saved successfully")
     @Operation(summary = "Save a new sujet", description = "This endpoint allows to save a")
-    public ResponseEntity<SujetDTO> saveSujet(@RequestBody SujetDTO sujet) {
-        log.debug("REST request to save Sujet : {}", sujet);
-        return new ResponseEntity<>(sujetService.save(sujet), HttpStatus.CREATED);
+    public ResponseEntity<SujetDTO> saveSujet(@RequestBody SujetDTO sujetDTO) {
+
+        log.debug("REST request to save Sujet : {}", sujetDTO);
+        if (sujetDTO.getForum() == null || sujetDTO.getForum().getId() == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        SujetDTO sujet = sujetService.save(sujetDTO);
+        return new ResponseEntity<>(sujet, HttpStatus.CREATED);
+
     }
 
     @GetMapping("/{id}")

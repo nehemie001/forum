@@ -1,5 +1,6 @@
 package ci.digitalacademy.forum.web.ressources;
 
+import ci.digitalacademy.forum.models.Forum;
 import ci.digitalacademy.forum.services.ForumService;
 import ci.digitalacademy.forum.services.dto.ForumDTO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,16 +28,18 @@ public class ForumRessource {
     @PostMapping
     @ApiResponse(responseCode = "200", description = "Forum saved successfully")
     @Operation(summary = "Save a new forum", description = "This endpoint allows to save a new forum")
-    public ResponseEntity<ForumDTO> saveForum(@RequestBody ForumDTO forum) {
-        log.debug("REST request to save forum : {}", forum);
-        return new ResponseEntity<>(forumService.save(forum), HttpStatus.CREATED);
+    public ResponseEntity<ForumDTO> saveForum(@RequestBody ForumDTO forumDTO) {
+        log.debug("REST request to save forum : {}", forumDTO);
+
+//        ForumDTO forum = forumService.
+        return new ResponseEntity<>(forumService.save(forumDTO), HttpStatus.CREATED);
     }
 
 
     @GetMapping("/{id}")
     @ApiResponse(responseCode = "200", description = "Forum retrieved successfully")
     @Operation(summary = "Get a forum by its id", description = "This endpoint allows to retrieve a forum by its id")
-    public ResponseEntity<?> getForumById(
+    public ResponseEntity<?> getId(
 
             @Parameter(required = true, description = "ID of the forum to be retrieved")
             @PathVariable Long id
@@ -64,6 +67,11 @@ public class ForumRessource {
     public List<ForumDTO> getAllForums() {
         log.debug("REST request to get all forums");
         return forumService.findAll();
+    }
+
+    public ResponseEntity<Forum> getForumById(@PathVariable Long id) {
+        Forum forum = forumService.getForumById(id);
+        return ResponseEntity.ok(forum);
     }
 
 }

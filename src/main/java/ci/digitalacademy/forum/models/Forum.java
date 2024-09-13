@@ -20,16 +20,13 @@ public class Forum {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "date_creation", nullable = false)
+    @Column(name = "date_creation")
     private Instant dateCreation;
 
-    @OneToMany(mappedBy = "forum", cascade = CascadeType.ALL)
-    @Column(nullable = true)
-    private List<Sujet> sujet;
 }

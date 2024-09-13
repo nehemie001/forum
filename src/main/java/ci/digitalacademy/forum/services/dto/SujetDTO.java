@@ -18,5 +18,8 @@ public class SujetDTO {
 
     private Instant dateCreation;
 
+    private ForumDTO forum;
+
     private List<MessageDTO> message;
+
 }

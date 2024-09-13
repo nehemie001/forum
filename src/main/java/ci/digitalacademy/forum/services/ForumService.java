@@ -1,5 +1,6 @@
 package ci.digitalacademy.forum.services;
 
+import ci.digitalacademy.forum.models.Forum;
 import ci.digitalacademy.forum.services.dto.ForumDTO;
 
 import java.util.List;
@@ -12,4 +13,7 @@ public interface ForumService {
     List<ForumDTO> findAll();
 
     Optional<ForumDTO> findById(Long id);
+
+    Forum getForumById(Long id);
+
 }

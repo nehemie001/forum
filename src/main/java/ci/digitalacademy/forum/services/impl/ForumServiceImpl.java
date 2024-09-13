@@ -1,7 +1,6 @@
 package ci.digitalacademy.forum.services.impl;
 
 import ci.digitalacademy.forum.models.Forum;
-import ci.digitalacademy.forum.models.Message;
 import ci.digitalacademy.forum.repositories.ForumRepository;
 import ci.digitalacademy.forum.services.ForumService;
 import ci.digitalacademy.forum.services.dto.ForumDTO;
@@ -10,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +25,7 @@ public class ForumServiceImpl implements ForumService {
     public ForumDTO save(ForumDTO forumDTO) {
         log.debug("Request to save forum:{}", forumDTO);
         Forum forum = forumMapper.toEntity(forumDTO);
+        forum.setDateCreation(Instant.now());
         forum = forumRepository.save(forum);
         return forumMapper.toDto(forum);
     }
@@ -38,4 +39,9 @@ public class ForumServiceImpl implements ForumService {
     public Optional<ForumDTO> findById(Long id) {
         return forumRepository.findById(id).map(forumMapper::toDto);
     }
+
+    public Forum getForumById(Long id) {
+        return forumRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
+    }
+
 }

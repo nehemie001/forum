@@ -1,6 +1,7 @@
 package ci.digitalacademy.forum.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,10 +32,10 @@ public class Sujet{
     @Column(name = "date_creation")
     private Instant dateCreation;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "forum_id")
     private Forum forum;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sujet")
+    @OneToMany
     private List<Message> message;
 }
