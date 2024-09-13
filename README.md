@@ -1,20 +1,20 @@
 # Forum APIs
 
-Cette API REST permet de gérer un forum avec des entités telles que **Forum**, **Sujet**, et **Message**. Elle permet de créer des forums, de gérer les sujets dans chaque forum, et de poster des messages dans les sujets. L'API est construite avec **Spring Boot 3.3.3**, utilise **PostgreSQL** pour la persistance des données, et suit une architecture RESTful.
+Cette API REST permet de gérer un forum avec des entités telles que `**Forum**`, `**Sujet**`, et `**Message**`. Elle permet de créer des forums, de gérer les sujets dans chaque forum, et de poster des messages dans les sujets. L'API est construite avec `**Spring Boot 3.3.3**`, utilise `**PostgreSQL**` pour la persistance des données, et suit une architecture `RESTful`.
 
 ## Prérequis
 
 Avant de lancer ce projet, vous devez avoir installé les éléments suivants :
 
 - **Java 17**
-- **Maven** (version 3.8 ou supérieure)
-- **PostgreSQL** (version 12 ou supérieure)
+- **Maven** (version `3.8` ou supérieure)
+- **PostgreSQL** (version `12` ou supérieure)
 
 ## Configuration de la base de données
 
 1. Installez PostgreSQL et créez une base de données.
-2. Configurez un utilisateur et un mot de passe pour la base de données.
-3. Configurez votre port
+2. Configurez un `utilisateur` et un `mot de passe` pour la base de données.
+3. Configurez votre `port`
 4. Mettez à jour le fichier `application.properties` avec les informations de connexion à votre base de données :
 
    ```properties
@@ -49,7 +49,7 @@ Suivez les étapes ci-dessous pour installer et exécuter l'API :
    ```properties
     mvn spring-boot:run
 
-5. L'application sera disponible sur http://localhost:votre_port
+5. L'application sera disponible sur `http://localhost:votre_port``
 
 ## Endpoints des APIs
 
@@ -114,7 +114,7 @@ Gestion des Messages
         
 ## Documentation des APIs
 
-La documentation complète de l'API est disponible via un fichier Postman que vous pouvez importer dans votre environnement Postman. Téléchargez le fichier ici.
+La documentation complète de l'API est disponible via un fichier `Postman` que vous pouvez importer dans votre environnement Postman. Téléchargez le fichier ici.
 
 ## Contributions
-Les contributions sont les bienvenues. Veuillez ouvrir une "issue" pour discuter des changements majeurs avant de soumettre une pull request.
+Les contributions sont les bienvenues. Veuillez ouvrir une `"issue"` pour discuter des changements majeurs avant de soumettre une `pull request`.
