@@ -17260,3 +17260,35 @@ java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child 
 2024-09-13T11:47:59.066Z  INFO 256 --- [forum] [http-nio-8083-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-09-13T11:47:59.067Z  INFO 256 --- [forum] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-09-13T11:47:59.069Z  INFO 256 --- [forum] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-09-13T11:56:36.707Z  INFO 4568 --- [forum] [restartedMain] c.digitalacademy.forum.ForumApplication  : Starting ForumApplication using Java 17.0.11 with PID 4568 (C:\ATOS\forum\target\classes started by HP in C:\ATOS\forum)
+2024-09-13T11:56:36.712Z  INFO 4568 --- [forum] [restartedMain] c.digitalacademy.forum.ForumApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T11:56:36.810Z  INFO 4568 --- [forum] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-13T11:56:36.811Z  INFO 4568 --- [forum] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-13T11:56:38.339Z  INFO 4568 --- [forum] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-13T11:56:38.443Z  INFO 4568 --- [forum] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94 ms. Found 3 JPA repository interfaces.
+2024-09-13T11:56:39.276Z  INFO 4568 --- [forum] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-09-13T11:56:39.293Z  INFO 4568 --- [forum] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T11:56:39.294Z  INFO 4568 --- [forum] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T11:56:39.376Z  INFO 4568 --- [forum] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T11:56:39.377Z  INFO 4568 --- [forum] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2563 ms
+2024-09-13T11:56:39.620Z  INFO 4568 --- [forum] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-13T11:56:39.706Z  INFO 4568 --- [forum] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-13T11:56:39.755Z  INFO 4568 --- [forum] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-13T11:56:40.221Z  INFO 4568 --- [forum] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-13T11:56:40.262Z  INFO 4568 --- [forum] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T11:56:40.475Z  INFO 4568 --- [forum] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15ec9d9d
+2024-09-13T11:56:40.478Z  INFO 4568 --- [forum] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T11:56:40.555Z  WARN 4568 --- [forum] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-09-13T11:56:41.924Z  INFO 4568 --- [forum] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-13T11:56:45.811Z  INFO 4568 --- [forum] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-13T11:56:46.448Z  WARN 4568 --- [forum] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-13T11:56:48.408Z  WARN 4568 --- [forum] [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-13T11:56:48.727Z  INFO 4568 --- [forum] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-13T11:56:48.793Z  INFO 4568 --- [forum] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2024-09-13T11:56:48.807Z  INFO 4568 --- [forum] [restartedMain] c.digitalacademy.forum.ForumApplication  : Started ForumApplication in 12.847 seconds (process running for 14.219)
+2024-09-13T11:57:23.004Z  INFO 4568 --- [forum] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T11:57:23.005Z  INFO 4568 --- [forum] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T11:57:23.010Z  INFO 4568 --- [forum] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-09-13T12:01:48.531Z  INFO 4568 --- [forum] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-13T12:01:48.600Z  INFO 4568 --- [forum] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T12:01:48.663Z  INFO 4568 --- [forum] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

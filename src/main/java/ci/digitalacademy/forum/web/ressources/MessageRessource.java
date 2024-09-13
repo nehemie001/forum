@@ -31,8 +31,7 @@ public class MessageRessource {
     }
 
 
-
-    @GetMapping
+    @GetMapping("/sujet/{sujetId}")
     @ApiResponses(
 
             {
@@ -40,13 +39,6 @@ public class MessageRessource {
                     @ApiResponse(responseCode = "404", description = "No messages found", content = @Content(schema = @Schema(implementation = String.class)))
             }
     )
-
-    public List<MessageDTO> getAllMessages() {
-        log.debug("REST request to Get all messages");
-        return messageService.findAll();
-    }
-
-    @GetMapping("/sujet/{sujetId}")
     public ResponseEntity<List<MessageDTO>> findMessagesInSujet(@PathVariable Long sujetId) {
         log.debug("REST request to get messages in sujet by id : {}", sujetId);
         List<MessageDTO> messages = messageService.findMessageInSujet(sujetId);

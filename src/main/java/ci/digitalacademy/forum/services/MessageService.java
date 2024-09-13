@@ -9,10 +9,8 @@ import java.util.Optional;
 public interface MessageService {
     MessageDTO save(MessageDTO messageDTO);
 
-    Optional<MessageDTO> findMessagesById(String slug);
 
     List<MessageDTO> findMessageInSujet(Long id);
 
-    List<MessageDTO> findAll();
 
 }

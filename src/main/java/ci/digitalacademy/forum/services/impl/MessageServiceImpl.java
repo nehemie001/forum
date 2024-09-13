@@ -38,24 +38,11 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Optional<MessageDTO> findMessagesById(String slug) {
-        log.debug("Request to get messages by slug:{}", slug);
-        return messageRepository.findBySlug(slug).map(messageMapper::toDto);
-    }
-
-    @Override
     public List<MessageDTO> findMessageInSujet(Long id) {
         log.debug("Request to get messages in sujet by id:{}", id);
         Sujet sujet = new Sujet();
         sujet.setId(id);
         return messageRepository.findMessageById(id).stream().map(messageMapper::toDto).collect(Collectors.toList());
-    }
-
-
-    @Override
-    public List<MessageDTO> findAll() {
-        log.debug("Request to get all messages : {} ");
-        return messageRepository.findAll().stream().map(messageMapper::toDto).toList();
     }
 
 }
