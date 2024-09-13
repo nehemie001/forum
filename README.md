@@ -49,7 +49,7 @@ Suivez les étapes ci-dessous pour installer et exécuter l'API :
    ```properties
     mvn spring-boot:run
 
-5. L'application sera disponible sur `http://localhost:votre_port``
+5. L'application sera disponible sur `http://localhost:votre_port`
 
 ## Endpoints des APIs
 
