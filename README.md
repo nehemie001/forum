@@ -117,4 +117,4 @@ Gestion des Messages
 La documentation complète de l'API est disponible via un fichier `Postman` que vous pouvez importer dans votre environnement Postman. Téléchargez le fichier ici.
 
 ## Contributions
-Les contributions sont les bienvenues. Veuillez ouvrir une `"issue"` pour discuter des changements majeurs avant de soumettre une `pull request`.
+Les contributions sont les bienvenues. Veuillez ouvrir une `issue` pour discuter des changements majeurs avant de soumettre une `pull request`.
