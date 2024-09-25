@@ -42,7 +42,9 @@ public class MessageServiceImpl implements MessageService {
         log.debug("Request to get messages in sujet by id:{}", id);
         Sujet sujet = new Sujet();
         sujet.setId(id);
-        return messageRepository.findMessageById(id).stream().map(messageMapper::toDto).collect(Collectors.toList());
+        return messageRepository.findMessageById(id).stream()
+                .map(messageMapper::toDto).collect(Collectors
+                        .toList());
     }
 
 }

@@ -36,7 +36,7 @@ public class Sujet implements Serializable {
     @Column(name = "slug", unique = true, nullable = false)
     private String slug;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "forum_id")
     private Forum forum;
 
